@@ -1,0 +1,93 @@
+body{
+    user-select: none;
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    background-position: center center;
+    background-attachment: fixed;
+    height: auto;
+    width: 100%; 
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+.backgroundImage{
+    display: grid;
+    place-items: center;
+    background-image: url(img/Start_screen.png);
+    width: 1200px;
+    height: 1000px;
+    background-size: cover;
+    position: relative;
+    
+    
+}
+#start{
+    display: grid;
+    place-items: center;
+    background-color: blue;
+    color: white;
+    margin-left: 650px;
+    height: 100px;
+    width: 150px;
+    font-size: xx-large;
+}
+
+.byTeam{
+    margin-left: 640px;
+    height: 20px;
+    width: 175px;
+    background-color: white;
+}
+
+.resumePlay{
+background-color: blue;
+color: white;
+}
+
+.container {
+    width: 800px;    
+}
+
+#road {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto;
+    border: 1px solid #000;
+    background-image: url('img/Road_scene1.png');
+    background-repeat: repeat-y;
+    animation: driveUp 19s linear infinite;
+}
+
+#car {
+    position: absolute;
+    width: 100px;
+    height: 60px;
+    /* background-image: url('img/Car.png'); */
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#car, img {
+    width: 100px;
+    height: 60px;
+    top: 70%;
+    left: center;
+    
+}
+
+@keyframes driveUp {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 0 10000px; /* Dette får bakgrunnen til å bevege seg oppover */
+    }
+}
+
