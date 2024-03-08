@@ -7,7 +7,7 @@ body{
     background-position: center center;
     background-attachment: fixed;
     height: auto;
-    width: 100%; 
+    /* width: 100%;  */
 }
 
 img {
@@ -64,22 +64,14 @@ color: white;
     animation: driveUp 19s linear infinite;
 }
 
-#car {
+.car {
+    width: 70px;
+    height: 80px;
     position: absolute;
-    width: 100px;
-    height: 60px;
-    /* background-image: url('img/Car.png'); */
-    top: 70%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-#car, img {
-    width: 100px;
-    height: 60px;
-    top: 70%;
-    left: center;
-    
+    background-color: #2f2f2f;
+    background-image: url(img/Car.png);
+    background-size: contain;
+    bottom: 10px;
 }
 
 @keyframes driveUp {
@@ -90,4 +82,3 @@ color: white;
       background-position: 0 10000px; /* Dette får bakgrunnen til å bevege seg oppover */
     }
 }
-

@@ -4,15 +4,17 @@ let image = 'img/Start_screen.png';
 let carImg = 'img/Car.png'
 let music;
 
-let carMovement = {
-    position: 0,
-    direction: 1,
-    speed: 2
-};
+let gameWidth;
+let gameHeight;
+
+
+let carPositionX = 180; 
+let carPositionY = 180;
+ 
+
+document.addEventListener('keydown', moveCar);
 
 //view
-
-
 startScreen();
 function startScreen() {
     app.innerHTML = /*html*/ `
@@ -27,10 +29,13 @@ function gameRun() {
         <button class="resumePlay" onclick="pauseMusic()">pause music</button>
         <button class="resumePlay" onclick="resumeMusic()">resume music</button>
         <div id="road">
-            <div class="car"><img src="img/Car.png" alt="car"></div>
+            <div class="car"></div>
         </div>
     `;
-
+    const gameArea = document.getElementById('road');
+    gameWidth = gameArea.offsetWidth;
+    gameHeight = gameArea.offsetHeight; 
+    car = document.querySelector('.car')
 }
 
 function CloseScreen() {
@@ -39,27 +44,27 @@ function CloseScreen() {
 }
 
 //controller
-function moveCar() {
-    document.addEventListener('keydown', function (event) {
-        var car = document.getElementById('raod');
-        var left = car.offsetLeft;
-        var top = car.offsetTop;
+function moveCar(e) {
 
-        switch (event.key) {
-            case "ArrowUp": // Pil opp
-                car.style.top = Math.max(top - 10, 0) + 'px';
-                break;
-            case "ArrowDown": // Pil ned
-                car.style.top = Math.min(top + 10, road.offsetHeight - car.offsetHeight) + 'px';
-                break;
-            case "ArrowLeft": // Pil venstre
-                car.style.left = Math.max(left - 10, 0) + 'px';
-                break;
-            case "ArrowRight": // Pil høyre
-                car.style.left = Math.min(left + 10, road.offsetWidth - car.offsetWidth) + 'px';
-                break;
+    if (e.key === "ArrowLeft" | e.key === 'a') {
+        if (carPositionX > 0) { 
+            carPositionX -= 10;
         }
-    });
+    } else if (e.key === "ArrowRight" | e.key === 'd') {
+        if (carPositionX < gameWidth - car.offsetWidth) { 
+            carPositionX += 10; 
+        }
+    } else if (e.key === "ArrowUp" | e.key === 'w') {
+        if (carPositionY > 0) { 
+            carPositionY -= 10;
+        }
+    } else if (e.key === "ArrowDown" | e.key === 's') { 
+        if (carPositionY < gameHeight - car.offsetHeight) { 
+            carPositionY += 10;
+        }
+    }
+    car.style.left = carPositionX + 'px';
+    car.style.top = carPositionY + 'px'; 
 }
 
 
@@ -77,4 +82,3 @@ function pauseMusic() {
 function resumeMusic() {
     music.play();
 }
-
